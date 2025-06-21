@@ -49,39 +49,17 @@ This project simulates both, then applies a **Complementary Filter** to fuse the
   - No sensors, no MCU needed — runs on any PC
 
 ---
-
 ## 🧱 Architecture & Data Flow
 
 This project implements a **complementary filter** to derive a stable and accurate angle estimation from simulated, imperfect sensor data. The data flows through the system in the following sequence:
 
-```mermaid
-graph TD
-    subgraph A [1. Sensor Simulation]
-        direction LR
-        A1[accel_angle (noisy)]
-        A2[gyro_rate (drifty)]
-    end
+<p align="center">
+  <img src="images/Sensor Fusion System Flow Diagram.png" alt="Sensor Fusion Architecture Diagram" width="800"/>
+  <br/>
+  <em>Sensor Fusion System – Accelerometer and Gyroscope Fusion with Complementary Filter</em>
+</p>
 
-    B[2. Complementary Filter]
-    C[fused_angle]
-
-    subgraph D [3. Output]
-      direction LR
-      D1[Console Display]
-      D2[log.csv]
-    end
-
-    A1 --► B
-    A2 --► B
-    B --► C
-    C --► D1
-    C --► D2
-
-    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style B fill:#e6f7ff,stroke:#333,stroke-width:2px
-    style D fill:#f9f9f9,stroke:#333,stroke-width:2px
-````
-
+---
 ### 1. Sensor Simulation
 
 The process begins with a simulated **Inertial Measurement Unit (IMU)** that generates two distinct sensor readings:
@@ -138,7 +116,7 @@ The final filtered angle is sent to two output destinations:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/c-sensor-fusion-simulator.git
+git clone https://github.com/AkshayTiwari27/Sensor-Fusion-Simulator.git
 cd c-sensor-fusion-simulator
 
 # Compile the project
